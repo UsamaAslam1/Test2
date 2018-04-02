@@ -1,6 +1,8 @@
 
 var db;
 var address;
+var msg = ""
+
 //Open parabase Connection
 document.addEventListener("deviceready", onDeviceReady, false);
 
@@ -8,12 +10,6 @@ function onDeviceReady() {
     db = window.sqlitePlugin.openDatabase({ name: "Database.db", location: 'default' });
 }
 
-function success(uri) {
-   
-    return uri;
-}
-function error(error) {
-}
 function Lookup() {
 
       // creating a table here if it already exists then it would just get a reference to that table otherwise it will create it.
@@ -28,11 +24,9 @@ function Lookup() {
                     alert("Something went wrong during the creation of the table");
                 });
         });
-    
+    msg = "";
     var para = document.getElementById("display");
     
-    var msg = ""
-
     // looking for data in the db
     db.transaction(function (transaction) {
         transaction.executeSql('SELECT * FROM Property where property = ?', [property], function (tx, data) {
@@ -52,24 +46,20 @@ function Lookup() {
               
  msg += "<br /> Entry ID: " + data.rows.item(i).id
                         + "<br/> Property Type: " + data.rows.item(i).property
-                        + "<br/> Bedrooms:  " + data.rows.item(i).bed_count
-                        + "<br/> Reporter:  " + data.rows.item(i).r_name
-                        + "<br/> Date: <b> " + data.rows.item(i).date_time
-                        
-                        + " <br/> Rent: " + data.rows.item(i).money
-                    if (data.rows.item(i).notes != "")
+                         + "<br/> Reporter:  " + data.rows.item(i).r_name
+                         + "<br/> Date:  " + data.rows.item(i).date_time
+                         + "<br/> Bedrooms:  " + data.rows.item(i).bed_count
+                         + " <br/> Rent: " + data.rows.item(i).money
+                                        if (data.rows.item(i).notes != "")
                         msg += "<br/> Note:  " + data.rows.item(i).notes;
 
                     if (data.rows.item(i).furnishing != "")
                         msg += "<br/> Furniture Type: " + data.rows.item(i).furnishing;
 
 
-                //getting the actual address of the image file. i.e. resolving the image address
-                  // var address =  window.FilePath.resolveNativePath(data.rows.item(i).selfie, success, error);
-
                     
-                // displaying the image
-                   msg += "<br /><input type='image' src= '" + data.rows.item(i).selfie+"' width='180' height='180'>"
+                // displaying the image after getting the address of the image from the database.
+                    msg += "<br /><br /><input type='image' src= '" + data.rows.item(i).selfie+"' alt='Image not found!!' width='180' height='180'>"
                 }
             // para.innerHTML will display all the data on the screen.
             if (msg != "")

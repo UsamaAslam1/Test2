@@ -10,7 +10,7 @@ function onDeviceReady() {
 function AddNoteClicked()
 {
     var entry = document.getElementById("entry_ID").value;
-    if (id == "")
+    if (entry == "")
     {
         alert("The ID field cannot be empty. Please enter an id to proceed.");
         return;
@@ -18,7 +18,7 @@ function AddNoteClicked()
     }
     
     var notes = document.getElementById("NOTE").value;
-    if (note == "") {
+    if (notes == "") {
         alert("You must enter something in the notes field to proceed");
         return;
 
@@ -27,7 +27,7 @@ function AddNoteClicked()
     // updates the note field in the database wrt to the id.
     db.transaction(function (transaction) {
         var executeQuery = "UPDATE Property SET notes=? WHERE id=?";
-        transaction.executeSql(executeQuery, [note, entry],
+        transaction.executeSql(executeQuery, [notes, entry],
             //On Success
             function (tx, result) { alert('Note has been attached successfully'); },
             //On Error
