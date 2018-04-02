@@ -57,13 +57,13 @@ function Add_to_DB()
   
 
 
-  var alert = "Property Type: " + property + "\n Total Bedrooms: " + bed_count + "\n date & time: " + date_time +"\n Monthly rent: " + money + "\n Reporters Name: " + r_name;
+  var alerts = "Property Type: " + property + "\n Total Bedrooms: " + bed_count + "\n date & time: " + date_time +"\n Monthly rent: " + money + "\n Reporters Name: " + r_name;
 
   if (notes !== "")
-      alert += "\n Notes: " + notes;
+      alerts += "\n Notes: " + notes;
 
   if (furnishing != "")
-      alert += "\n Furnishing Type: " + furnishing;
+      alerts += "\n Furnishing Type: " + furnishing;
 
   if (money === "" || r_name === "" || bed_count === "" || date_time === "" || property === "") {
       alert("Cannot proceed. Missing required fields");
@@ -72,7 +72,7 @@ function Add_to_DB()
 
        // the code below shows a confirmation dialog box and gets the users input if he want to edit or not.
   navigator.notification.confirm(
-      alert,
+      alerts,
       Store,
       'Confirm Details',
       'Submit,Go Back'
