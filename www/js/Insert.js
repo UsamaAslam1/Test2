@@ -27,7 +27,7 @@ function getPhoto() {
     
    
 }
-window.FilePath.resolveNativePath(imageURI, success, error);
+
 function onPhotoURISuccess(imageURI) {
 
     
