@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    
+   <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+ 
+   <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+
+
+    <title>Rental Apartments Finder</title>
+</head>
+
+
+
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+        
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" >  Search Property </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container text-center">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well">
+
+
+
+                    <div class="form-group">
+
+                        <select id="property_type" class="form-control" title="Choose Building Type" data-width="100%" data-style="btn-sample" style="margin-top:10px">
+                            <option value="Flat">Flat</option>
+                            <option value="House">House</option>
+                            <option value="Bungalow">Bungalow</option>
+                        </select>
+
+
+                        <button id="insert" class="btn btn-success" onclick="Lookup()" style="margin-top:10px""><b>Search Property</b></button>
+                    </div>
+                    <p id="display"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+   
+    <script defer type="text/javascript" src="js/Display.js"></script>
+</body>
+
+</html>

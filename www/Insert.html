@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+   
+   <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="js/Insert.js"></script>
+  
+
+
+    
+
+</head>
+
+
+
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    Enter Property Details
+                    </a>
+            </div>
+        </div>
+    </nav>
+
+  <div class="container text-center" style="margin-top:10px">
+           
+        <div class = "row">
+          <div class = "col-md-12">
+            <div class = "well">
+
+
+
+                <div class="form-group">
+                   
+                    <select class="form-control"  title="Select Property Type" style="margin-bottom:2px" data-width="100%"data-style="btn-sample" id="p_type"   >
+                        <option value="Flat">Flat</option>
+                        <option value="House">House</option>
+                        <option value="Bungalow">Bungalow</option>
+                    </select>
+               
+
+                   
+
+                <input type="text" class="form-control"   id="No_of_Beds" placeholder="Number of Bedrooms" style="margin-top:2px">
+                
+                    <input type="text" class="form-control" id="price" placeholder="Property Rent" style="margin-top:2px">
+
+               
+
+                <input type="text" class="form-control" id="Tag"  placeholder="Additional Notes" >
+
+                <input type="text" class="form-control" id="r_name"  placeholder="Reporters Name" style="margin-top:2px">
+                  
+                    <input type="datetime-local" class="form-control" data-date-inline-picker="true" id="date_time" style="margin-top:2px">
+
+                    <select class="form-control" id="f_type"  title="Furniture Type "  data-width="100%" data-style="btn-sample" style="margin-top:2px">
+                        <option value="Furnished">Furnished</option>
+                        <option value="Unfurnished">Unfurnished</option>
+                        <option value="Part Furnished">Part Furnished</option>
+                    </select>
+
+                    <input type="image" id="selfie" src="img/upload_camera.png" alt="Submit" style="margin-top:7px" onclick="getPhoto(); return false;" width="180" height="180">
+                    </div>
+              </div>
+              <button class="btn btn-success" onclick="Add_to_DB()">Submit</button>
+          </div>
+        </div>
+      </div>
+
+ 
+   
+</body>
+
+</html>
