@@ -7,6 +7,7 @@ var msg = ""
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
+    // opening the database stored and storing the reference of it in the db variable.
     db = window.sqlitePlugin.openDatabase({ name: "Database.db", location: 'default' });
 }
 
@@ -24,26 +25,30 @@ function Lookup() {
                     alert("Something went wrong during the creation of the table");
                 });
         });
+
+    //setting the msg string to empty
     msg = "";
+    // getting reference to the paragraph tag with id=display
     var para = document.getElementById("display");
     
     // looking for data in the db
     db.transaction(function (transaction) {
         transaction.executeSql('SELECT * FROM Property where property = ?', [property], function (tx, data) {
+            // getting the number of rows we got back after running the query in len variable
             var len = data.rows.length;
-            // location variable will be used to store the location of the user. The latitude and langitude fields will be added to it after fetching their values from the db.
          
-           
+         // if len is less than 1 it means there were no rows in the respective category  
             if (len < 1 )
             {
                 para.innerHTML = "There are no enteries against the respective category";
             }
+            // if there where rows we will loop through the rows and add the data of that row in msg variable and display it at the end
             var i;
             for (i = 0; i < len; i++) {
           
 
                 
-              
+              // here we are getting each rows every columns values and add it to the msg variable
  msg += "<br /> Entry ID: " + data.rows.item(i).id
                         + "<br/> Property Type: " + data.rows.item(i).property
                          + "<br/> Reporter:  " + data.rows.item(i).r_name
@@ -59,7 +64,8 @@ function Lookup() {
 
                     
                 // displaying the image after getting the address of the image from the database.
-                    msg += "<br /><br /><input type='image' src= '" + data.rows.item(i).selfie+"' alt='Image not found!!' width='180' height='180'>"
+                    if (data.rows.item(i).selfie != "")
+                        msg += "<br /><br /><input type='image' src= '" + data.rows.item(i).selfie +"' alt='Image not found!!' width='180' height='180'><br /><br />"
                 }
             // para.innerHTML will display all the data on the screen.
             if (msg != "")

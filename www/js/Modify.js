@@ -4,11 +4,14 @@ var db;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
+    // opening the database stored and storing the reference of it in the db variable.
     db = window.sqlitePlugin.openDatabase({ name: "Database.db", location: 'default' });
 }
 
+// this function will be clicked if the user clicked save in Add a note page.
 function AddNoteClicked()
 {
+    // checking if neither the id field nor the note field should be empty
     var entry = document.getElementById("entry_ID").value;
     if (entry == "")
     {
