@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+
+    <!-- Google Maps -->
+	<script defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNTt-M_nFQb2Z0uuxzQkp4hHz1Igrd6xI&libraries=places&callback=initMap"></script>
+
+
+	<!-- Map Icons -->
+	<link rel="stylesheet" type="text/css" href="dist/css/map-icons.css">
+	<script defer src="dist/js/map-icons.js"></script>
+
+    <title>Roadside Assistance</title>
+</head>
+
+
+
+
+<body>
+  <nav class="navbar navbar-inverse ">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="menu.html" type="button" class="navbar-btn btn-default pull-right navbar-toggle"  style="display:block">
+<i class="fa fa-cogs" aria-hidden="true"></i>
+</a>
+      <a class="navbar-brand" >Car Assistant</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse ">
+
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+<div id="map-canvas"> Please wait till the map loads...</div>
+
+
+  <!-- Java Script -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
